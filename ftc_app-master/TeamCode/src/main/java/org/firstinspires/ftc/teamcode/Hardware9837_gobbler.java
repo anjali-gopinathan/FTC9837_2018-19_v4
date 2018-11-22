@@ -20,7 +20,8 @@ class Hardware9837_gobbler {
 //    Servo markerPusher;
     
 //    DcMotor intakeMotor;
-    DcMotor armMotor;
+    DcMotor armMotorLeft;
+    DcMotor armMotorRight;
     DcMotor extendIntakeMotor;
 //    DcMotor rotateIntakeMotor;
 
@@ -39,7 +40,8 @@ class Hardware9837_gobbler {
 //        markerPusher.setPosition(0);
 //
 //        intakeMotor = hwMap.dcMotor.get("intake");
-        armMotor = hwMap.dcMotor.get("arm");
+        armMotorLeft = hwMap.dcMotor.get("arm left motor");
+        armMotorRight = hwMap.dcMotor.get("arm right motor");
         extendIntakeMotor = hwMap.dcMotor.get("extend intake");
 //        rotateIntakeMotor = hwMap.dcMotor.get("rotate intake");
 
@@ -48,7 +50,9 @@ class Hardware9837_gobbler {
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
         
 //        intakeMotor.setDirection(DcMotor.Direction.FORWARD);
-        armMotor.setDirection(DcMotor.Direction.FORWARD);
+        armMotorLeft.setDirection(DcMotor.Direction.FORWARD);
+        armMotorRight.setDirection(DcMotor.Direction.REVERSE);
+
         extendIntakeMotor.setDirection(DcMotor.Direction.FORWARD);
 //        rotateIntakeMotor.setDirection(DcMotor.Direction.FORWARD);
 
@@ -59,7 +63,8 @@ class Hardware9837_gobbler {
         rightMotor.setPower(0.0);
         leftMotor.setPower(0.0);
 //        intakeMotor.setPower(0.0);
-        armMotor.setPower(0.0);
+        armMotorLeft.setPower(0.0);
+        armMotorRight.setPower(0.0);
         extendIntakeMotor.setPower(0.0);
 //        rotateIntakeMotor.setPower(0.0);
         

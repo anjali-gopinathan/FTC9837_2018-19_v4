@@ -26,17 +26,24 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             boolean extendMotorOut = gamepad1.b;
             boolean extendMotorIn = gamepad1.x;
 
-            double motorPower = 0.6;
+            double motorPower = 0.8;
 
             gobbler.leftMotor.setPower(leftDrive);
             gobbler.rightMotor.setPower(rightDrive);
 
-            if(armMotorUp)
-                gobbler.armMotor.setPower(motorPower);
-            else if (armMotorDown)
-                gobbler.armMotor.setPower(-motorPower);
-            else
-                gobbler.armMotor.setPower(0.0);
+            if(armMotorUp) {
+                gobbler.armMotorLeft.setPower(motorPower);
+                gobbler.armMotorRight.setPower(motorPower);
+            }
+            else if (armMotorDown) {
+                gobbler.armMotorLeft.setPower(-motorPower);
+                gobbler.armMotorRight.setPower(-motorPower);
+            }
+            else {
+                gobbler.armMotorLeft.setPower(0.0);
+                gobbler.armMotorRight.setPower(0.0);
+            }
+
 
             if(extendMotorOut)
                 gobbler.extendIntakeMotor.setPower(motorPower);
