@@ -20,8 +20,8 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             double leftDrive = gamepad1.left_stick_y;
             double rightDrive = gamepad1.right_stick_y;
 
-            double armMotorUp = -gamepad1.right_trigger;
-            double armMotorDown = -gamepad1.left_trigger;
+            double armMotorsUp = gamepad1.right_trigger;
+            double armMotorsDown = gamepad1.left_trigger;
 
             boolean extendMotorOut = gamepad1.b;
             boolean extendMotorIn = gamepad1.x;
@@ -32,18 +32,24 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             boolean markerPusherIn = gamepad1.y;
             boolean markerPusherOut = gamepad1.a;
 
+            boolean liftUp = gamepad1.dpad_up;
+            boolean lowerDown = gamepad1.dpad_down;
+
+            boolean rotateTwisterUp = gamepad1.dpad_right;
+            boolean rotateTwisterDown = gamepad1.dpad_left;
+
             double motorPower = 0.8;
 
             gobbler.leftMotor.setPower(leftDrive);
             gobbler.rightMotor.setPower(rightDrive);
 
-            if(armMotorUp >0) {
-                gobbler.armMotorLeft.setPower(armMotorUp);
-                gobbler.armMotorRight.setPower(armMotorUp);
+            if(armMotorsUp >0) {
+                gobbler.armMotorLeft.setPower(armMotorsUp);
+                gobbler.armMotorRight.setPower(armMotorsUp);
             }
-            else if (armMotorDown >0) {
-                gobbler.armMotorLeft.setPower(armMotorDown);
-                gobbler.armMotorRight.setPower(armMotorDown);
+            else if (armMotorsDown >0) {
+                gobbler.armMotorLeft.setPower(-armMotorsDown);
+                gobbler.armMotorRight.setPower(-armMotorsDown);
             }
             else {
                 gobbler.armMotorLeft.setPower(0.0);
@@ -84,6 +90,28 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             }
 
 
+            if (liftUp){
+                gobbler.liftUpMotor.setPower(1.0);
+            }
+            else if (lowerDown){
+                gobbler.liftUpMotor.setPower(-1.0);
+            }
+            else {
+                gobbler.liftUpMotor.setPower(0.0);
+            }
+
+            if(rotateTwisterUp){
+//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()+0.05);
+                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()+0.05);
+            }
+            else if(rotateTwisterDown){
+//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()-0.05);
+                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()-0.05);
+            }
+            else{
+//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition());
+                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition());
+            }
 
         }
     }

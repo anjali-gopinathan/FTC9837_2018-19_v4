@@ -11,9 +11,11 @@ import com.qualcomm.robotcore.hardware.Servo;
  */
 
 class Hardware9837_gobbler {
+    //Drive train:
     DcMotor rightMotor;
     DcMotor leftMotor;
 
+    //arm, intake, extend intake
     DcMotor intakeMotor;
     DcMotor armMotorLeft;
     DcMotor armMotorRight;
@@ -22,9 +24,14 @@ class Hardware9837_gobbler {
 
 //    ColorSensor colorSensorLeft;
 //    ColorSensor colorSensorRight;
-//
+
+    //Pushes marker into depot
     Servo markerPusher;
 
+    //Pulls up robot
+    DcMotor liftUpMotor;
+    Servo rotateTwisterInside;     //inside = closer to inside of robot
+//    Servo rotateTwisterOutside;    //outside = on outside of robot
 
     //HardwareMap hwMap = null;
     //private ElapsedTime period  = new ElapsedTime();
@@ -45,7 +52,15 @@ class Hardware9837_gobbler {
         armMotorRight = hwMap.dcMotor.get("arm right motor");//port 3 hub A
         extendIntakeMotor = hwMap.dcMotor.get("extend intake");//port 1 hub b
 
-        
+        liftUpMotor = hwMap.dcMotor.get("lift motor");
+
+        rotateTwisterInside = hwMap.servo.get("rotate twister inside");
+        rotateTwisterInside.setPosition(0);
+
+//        rotateTwisterOutside = hwMap.servo.get("rotate twister outside");
+//        rotateTwisterOutside.setPosition(0);
+
+        //Dcmotors: CW by default
         rightMotor.setDirection(DcMotor.Direction.FORWARD);
         leftMotor.setDirection(DcMotor.Direction.REVERSE);
         
@@ -54,6 +69,8 @@ class Hardware9837_gobbler {
         armMotorRight.setDirection(DcMotor.Direction.REVERSE);
 
         extendIntakeMotor.setDirection(DcMotor.Direction.FORWARD);
+
+        liftUpMotor.setDirection(DcMotor.Direction.FORWARD);
 
 //        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 //        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
