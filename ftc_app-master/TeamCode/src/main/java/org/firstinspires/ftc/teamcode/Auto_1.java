@@ -58,6 +58,15 @@ public class Auto_1 extends LinearOpMode{
 //        }
         sleep(moveTime);
 
+        while (opModeIsActive() && gobbler.leftMotor.isBusy())
+        {
+            telemetry.addData("encoder-fwd", gobbler.leftMotor.getCurrentPosition() + "  busy=" + gobbler.leftMotor.isBusy());
+            telemetry.update();
+            idle();
+        }
+
+        
+
 
 
         gobbler.leftMotor.setPower(0.0);

@@ -72,8 +72,8 @@ class Hardware9837_gobbler {
 
         liftUpMotor.setDirection(DcMotor.Direction.FORWARD);
 
-//        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-//        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         
         //set pwr to 0
         rightMotor.setPower(0.0);
