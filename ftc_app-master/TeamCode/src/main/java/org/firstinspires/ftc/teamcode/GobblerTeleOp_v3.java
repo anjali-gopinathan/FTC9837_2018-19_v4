@@ -79,39 +79,39 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             }
 
             //Servo to push marker into depot- y and a
-            if (markerPusherIn){
-                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition()+0.05);
-            }
-            else if (markerPusherOut){
-                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition()-0.05);
-            }
-            else {
-                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition());
-            }
-
-
-            if (liftUp){
-                gobbler.liftUpMotor.setPower(1.0);
-            }
-            else if (lowerDown){
-                gobbler.liftUpMotor.setPower(-1.0);
-            }
-            else {
-                gobbler.liftUpMotor.setPower(0.0);
-            }
-
-            if(rotateTwisterUp){
-//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()+0.05);
-                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()+0.05);
-            }
-            else if(rotateTwisterDown){
-//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()-0.05);
-                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()-0.05);
-            }
-            else{
-//                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition());
-                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition());
-            }
+//            if (markerPusherIn){
+//                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition()+0.05);
+//            }
+//            else if (markerPusherOut){
+//                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition()-0.05);
+//            }
+//            else {
+//                gobbler.markerPusher.setPosition(gobbler.markerPusher.getPosition());
+//            }
+//
+//
+//            if (liftUp){
+//                gobbler.liftUpMotor.setPower(1.0);
+//            }
+//            else if (lowerDown){
+//                gobbler.liftUpMotor.setPower(-1.0);
+//            }
+//            else {
+//                gobbler.liftUpMotor.setPower(0.0);
+//            }
+//
+//            if(rotateTwisterUp){
+////                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()+0.05);
+//                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()+0.05);
+//            }
+//            else if(rotateTwisterDown){
+////                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition()-0.05);
+//                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition()-0.05);
+//            }
+//            else{
+////                gobbler.rotateTwisterOutside.setPosition(gobbler.rotateTwisterOutside.getPosition());
+//                gobbler.rotateTwisterInside.setPosition(gobbler.rotateTwisterInside.getPosition());
+//            }
 
         }
     }

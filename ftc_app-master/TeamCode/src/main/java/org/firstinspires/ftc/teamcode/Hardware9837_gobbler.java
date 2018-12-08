@@ -26,11 +26,11 @@ class Hardware9837_gobbler {
 //    ColorSensor colorSensorRight;
 
     //Pushes marker into depot
-    Servo markerPusher;
+//    Servo markerPusher;
 
     //Pulls up robot
-    DcMotor liftUpMotor;
-    Servo rotateTwisterInside;     //inside = closer to inside of robot
+//    DcMotor liftUpMotor;
+//    Servo rotateTwisterInside;     //inside = closer to inside of robot
 //    Servo rotateTwisterOutside;    //outside = on outside of robot
 
     //HardwareMap hwMap = null;
@@ -44,18 +44,23 @@ class Hardware9837_gobbler {
 //        colorSensorLeft = hwMap.colorSensor.get("colorSensorLeft");
 //        colorSensorRight = hwMap.colorSensor.get("colorSensorRight");
 //
-        markerPusher = hwMap.servo.get("marker pusher");
-        markerPusher.setPosition(0);
+//        markerPusher = hwMap.servo.get("marker pusher");
+//        markerPusher.setPosition(0);
 //
         intakeMotor = hwMap.dcMotor.get("intake");          //port 0 hub b
         armMotorLeft = hwMap.dcMotor.get("arm left motor"); // port 2 hub A
         armMotorRight = hwMap.dcMotor.get("arm right motor");//port 3 hub A
         extendIntakeMotor = hwMap.dcMotor.get("extend intake");//port 1 hub b
 
-        liftUpMotor = hwMap.dcMotor.get("lift motor");
+        rightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armMotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armMotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        rotateTwisterInside = hwMap.servo.get("rotate twister inside");
-        rotateTwisterInside.setPosition(0);
+//        liftUpMotor = hwMap.dcMotor.get("lift motor");
+//
+//        rotateTwisterInside = hwMap.servo.get("rotate twister inside");
+//        rotateTwisterInside.setPosition(0);
 
 //        rotateTwisterOutside = hwMap.servo.get("rotate twister outside");
 //        rotateTwisterOutside.setPosition(0);
@@ -70,7 +75,7 @@ class Hardware9837_gobbler {
 
         extendIntakeMotor.setDirection(DcMotor.Direction.FORWARD);
 
-        liftUpMotor.setDirection(DcMotor.Direction.FORWARD);
+//        liftUpMotor.setDirection(DcMotor.Direction.FORWARD);
 
         rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

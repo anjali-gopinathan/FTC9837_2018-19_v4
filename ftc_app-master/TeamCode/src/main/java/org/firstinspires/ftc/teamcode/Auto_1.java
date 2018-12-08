@@ -65,7 +65,7 @@ public class Auto_1 extends LinearOpMode{
             idle();
         }
 
-        
+
 
 
 
