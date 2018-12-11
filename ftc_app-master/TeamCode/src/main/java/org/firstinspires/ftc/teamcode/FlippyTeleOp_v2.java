@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 /**
  * Created by Anjali on 10/22/2018.
  */
-
+@Disabled
 @TeleOp(name="TeleOp: Flippy v2", group="Pushbot")
 
 public class FlippyTeleOp_v2 extends LinearOpMode{
