@@ -54,25 +54,32 @@ public class Auto_1 extends LinearOpMode{
 
         waitForStart();
 
+        while (opModeIsActive() && gobbler.leftMotor.isBusy())
+        {
+//            telemetry.addData("left RGB", "("+gobbler.colorSensorLeft.red() + ", " + gobbler.colorSensorLeft.green() + ", " + gobbler.colorSensorLeft.blue() + ")");
+//            telemetry.addData("right RGB", "("+gobbler.colorSensorRight.red() + ", " + gobbler.colorSensorRight.green() + ", " + gobbler.colorSensorRight.blue() + ")");
 
-        telemetry.addData("left RGB: (" + gobbler.colorSensorLeft.red() + ", " + gobbler.colorSensorLeft.green() + ", " + gobbler.colorSensorLeft.blue() + ")", 0);
-        telemetry.addData("right RGB: (" + gobbler.colorSensorRight.red() + ", " + gobbler.colorSensorRight.green() + ", " + gobbler.colorSensorRight.blue() + ")", 0);
+            telemetry.update();
+            idle();
+        }
 
         gobbler.leftMotor.setPower(1.0);
         gobbler.rightMotor.setPower(1.0);
 
         //While left blue is small, keep moving forward.
-        while (     (gobbler.colorSensorLeft.blue() < 150) &&
-                        (gobbler.colorSensorLeft.blue() < gobbler.colorSensorLeft.red()) &&
-                        (gobbler.colorSensorLeft.blue() > gobbler.colorSensorLeft.green())
-                &&  (gobbler.colorSensorRight.blue() < 150) &&
-                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.red()) &&
-                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.green())
-              ){
-         //If the blue value is low on both sensors
-        moveTime1+=100;
-        }
+//        while (     (gobbler.colorSensorLeft.blue() < 150) &&
+//                        (gobbler.colorSensorLeft.blue() < gobbler.colorSensorLeft.red()) &&
+//                        (gobbler.colorSensorLeft.blue() > gobbler.colorSensorLeft.green())
+//                &&  (gobbler.colorSensorRight.blue() < 150) &&
+//                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.red()) &&
+//                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.green())
+//              ){
+//         //If the blue value is low on both sensors
+//        moveTime1+=100;
+//        }
         sleep(moveTime1);
+        gobbler.leftMotor.setPower(0.0);
+        gobbler.rightMotor.setPower(0.0);
 
         while (opModeIsActive() && gobbler.leftMotor.isBusy())
         {
@@ -169,7 +176,6 @@ public class Auto_1 extends LinearOpMode{
                     // getUpdatedRecognitions() will return null if no new information is available since
                     // the last time that call was made.
                     List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
-                    updatedRecognitions.
                     if (updatedRecognitions != null) {
                         telemetry.addData("# Object Detected", updatedRecognitions.size());
                         if (updatedRecognitions.size() == 3) {
@@ -177,6 +183,15 @@ public class Auto_1 extends LinearOpMode{
                             int silverMineral1X = -1;
                             int silverMineral2X = -1;
                             for (Recognition recognition : updatedRecognitions) {
+                                float x = recognition.getTop();
+                                float y = recognition.getImageWidth() - recognition.getRight();
+                                float width = recognition.getHeight();
+                                float height = recognition.getWidth();
+                                telemetry.addData("x", x);
+                                telemetry.addData("y", y);
+                                telemetry.addData("width", width);
+                                telemetry.addData("height", height);
+
                                 if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
                                     goldMineralX = (int) recognition.getLeft();
                                 } else if (silverMineral1X == -1) {
@@ -217,15 +232,7 @@ public class Auto_1 extends LinearOpMode{
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
         parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
-
-        setRequestedOrientation(Configuration.ORIENTATION_LANDSCAPE);
-        setActivityPortraitMode();
-
-        setImageWidth( getTop();
-        y = getImageWidth() - getRight();
-        image.width = getHeight();
-        height = getWidth();
-
+        parameters = new VuforiaLocalizer.Parameters(R.id.cameraMonitorViewId); //Put "R.id.cameraMonitorViewId" in the parameter of the Parameters method if you want camera to display on RC phone
 
 
         //  Instantiate the Vuforia engine
@@ -233,7 +240,6 @@ public class Auto_1 extends LinearOpMode{
 
         // Loading trackables is not necessary for the Tensor Flow Object Detection engine.
     }
-
     /**
      * Initialize the Tensor Flow Object Detection engine.
      */
@@ -245,5 +251,4 @@ public class Auto_1 extends LinearOpMode{
         tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABEL_GOLD_MINERAL, LABEL_SILVER_MINERAL);
     }
 
-    }
 }
