@@ -40,8 +40,8 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
 
             double motorPower = 0.8;
 
-            gobbler.leftMotor.setPower(leftDrive);
-            gobbler.rightMotor.setPower(rightDrive);
+            gobbler.leftMotor.setPower(-leftDrive);
+            gobbler.rightMotor.setPower(-rightDrive);
 
             if(armMotorsUp >0) {
                 gobbler.armMotorLeft.setPower(armMotorsUp);
@@ -101,10 +101,10 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
             }
 
             if(rotateTwisterUp){
-                gobbler.rotateTwister.setPosition(gobbler.rotateTwister.getPosition() >= 0.94 ? 1.0 : gobbler.rotateTwister.getPosition() + .02);
+                gobbler.rotateTwister.setPosition(gobbler.rotateTwister.getPosition() >= 0.98 ? 1.0 : gobbler.rotateTwister.getPosition() + .02);
             }
             else if(rotateTwisterDown){
-                gobbler.rotateTwister.setPosition(gobbler.rotateTwister.getPosition() <= 0.06 ? 0.0 : gobbler.rotateTwister.getPosition() - .02);
+                gobbler.rotateTwister.setPosition(gobbler.rotateTwister.getPosition() <= 0.02 ? 0.0 : gobbler.rotateTwister.getPosition() - .02);
             }
             else{
                 gobbler.rotateTwister.setPosition(gobbler.rotateTwister.getPosition());

@@ -63,6 +63,7 @@ public class Auto_1 extends LinearOpMode{
             idle();
         }
 
+        //Go forward
         gobbler.leftMotor.setPower(1.0);
         gobbler.rightMotor.setPower(1.0);
 
