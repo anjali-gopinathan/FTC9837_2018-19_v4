@@ -22,8 +22,8 @@ class Hardware9837_gobbler {
     DcMotor extendIntakeMotor;
 
 
-//    ColorSensor colorSensorLeft;
-//    ColorSensor colorSensorRight;
+    ColorSensor colorSensorLeft;
+    ColorSensor colorSensorRight;
 
     //Pushes marker into depot
     Servo markerPusher;
@@ -40,8 +40,8 @@ class Hardware9837_gobbler {
         rightMotor = hwMap.dcMotor.get("rightDrive");   //port zero hub A
         leftMotor = hwMap.dcMotor.get("leftDrive");     //port 1 hub A
 
-//        colorSensorLeft = hwMap.colorSensor.get("colorSensorLeft");
-//        colorSensorRight = hwMap.colorSensor.get("colorSensorRight");
+        colorSensorLeft = hwMap.colorSensor.get("colorSensorLeft");
+        colorSensorRight = hwMap.colorSensor.get("colorSensorRight");
 //
         markerPusher = hwMap.servo.get("marker pusher");
         markerPusher.setPosition(0.75);
