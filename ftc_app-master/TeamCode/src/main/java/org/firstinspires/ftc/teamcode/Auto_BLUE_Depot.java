@@ -1,9 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
@@ -13,147 +11,86 @@ import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
 import java.util.List;
 
 /**
- * Created by Anjali on 11/28/2018.
+ * Created by Anjali on 11/9/2018.
  */
-
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto CRATER side", group="Pushbot")
-public class Auto_1 extends LinearOpMode{
-    Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto BLUE Depot", group="Pushbot")
+public class Auto_BLUE_Depot extends LinearOpMode{
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
     private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
 
     private static final String VUFORIA_KEY = "AcPpQr7/////AAABmRuQqklau0F7hH15ovElLi8g8xxcFH4hzU6JHV7txfq4WXoLctKsuwc8XqSq/SU10A1VnIUj5HXdhG5Ni8/2X8Z+dWSe4pyn1lwj/Bc7nLV5+6j/8I1wKUrZ6wrjclDvcv+lz/W+TQDnrcLXYOLB8b3/voF9/xd/xTZFi5P2oaA/AOokm2IuadPdTJw1iyEujqs6RJM20C1Kjd9v0FSG07oUlImhPuSV18p/JoP/isRgxQLDxKpGluZbvWZm7yITMciaJ9uPvh7O48UiEzfeOupsFbHIUb0C7DgyzmFTEPwjIuQXbNLZik+IB0upOVabS4Lh572YxBj2rv30Icw99tGVaioIMk2LkoVxI9SH6LdH";
-    VuforiaLocalizer.Parameters parameters;
 
-
-
-    /**
-     * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
-     * localization engine.
-     */
     private VuforiaLocalizer vuforia;
 
-    /**
-     * {@link #tfod} is the variable we will use to store our instance of the Tensor Flow Object
-     * Detection engine.
-     */
     private TFObjectDetector tfod;
 
-    @Override
-    public void runOpMode() {
-        long moveTime1=100;    //miliseconds
-        double distance_const = 10.15;
-        long x1_cm = 45;
-        long x2_cm = 100;
-        long x3_cm = 186;
+    Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
 
-        long turn90deg_ms = 900;
-        long turn45deg_ms = 450;
+
+    public void runOpMode() {
+        int moveTime=100;    //miliseconds
+        int moveTime2 = 100;
+        boolean gold_Left = false;
+        boolean gold_Right = false;
+        boolean gold_Center = false;
+
         gobbler.init(hardwareMap);
 
         waitForStart();
+        //Lower
+        gobbler.liftUpMotor.setPower(-1.0);
+        sleep(1000);
+        gobbler.liftUpMotor.setPower(0.0);
 
-        while (opModeIsActive() && gobbler.leftDrive.isBusy())
-        {
-//            telemetry.addData("left RGB", "("+gobbler.colorSensorLeft.red() + ", " + gobbler.colorSensorLeft.green() + ", " + gobbler.colorSensorLeft.blue() + ")");
-//            telemetry.addData("right RGB", "("+gobbler.colorSensorRight.red() + ", " + gobbler.colorSensorRight.green() + ", " + gobbler.colorSensorRight.blue() + ")");
-
-            telemetry.update();
-            idle();
-        }
-
-        //Go forward
+        // turn 80 degrees
         gobbler.leftDrive.setPower(1.0);
-        gobbler.rightDrive.setPower(1.0);
+        gobbler.rightDrive.setPower(-1.0);
+        sleep(600);
+
+
+        // print colors recognized by color sensor
+        telemetry.addData("left RGB: (" + gobbler.colorSensorLeft.red() + ", " + gobbler.colorSensorLeft.green() + ", " + gobbler.colorSensorLeft.blue() + ")", 0);
+        telemetry.addData("right RGB: (" + gobbler.colorSensorRight.red() + ", " + gobbler.colorSensorRight.green() + ", " + gobbler.colorSensorRight.blue() + ")", 0);
+
+        //go forward
+        gobbler.leftDrive.setPower(-1.0);
+        gobbler.rightDrive.setPower(-1.0);
 
         //While left blue is small, keep moving forward.
-//        while (     (gobbler.colorSensorLeft.blue() < 150) &&
-//                        (gobbler.colorSensorLeft.blue() < gobbler.colorSensorLeft.red()) &&
-//                        (gobbler.colorSensorLeft.blue() > gobbler.colorSensorLeft.green())
-//                &&  (gobbler.colorSensorRight.blue() < 150) &&
-//                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.red()) &&
-//                        (gobbler.colorSensorRight.blue() < gobbler.colorSensorRight.green())
-//              ){
-//         //If the blue value is low on both sensors
-//        moveTime1+=100;
-//        }
-        sleep(moveTime1);
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
+        boolean leftIsBlue = (gobbler.colorSensorLeft.blue() > 150) && (gobbler.colorSensorLeft.blue()>gobbler.colorSensorLeft.red() && gobbler.colorSensorLeft.blue() > gobbler.colorSensorLeft.green());
+        boolean rightIsBlue = (gobbler.colorSensorRight.blue() > 150) && (gobbler.colorSensorRight.blue()>gobbler.colorSensorRight.red() && gobbler.colorSensorRight.blue() > gobbler.colorSensorRight.green());
 
-        while (opModeIsActive() && gobbler.leftDrive.isBusy())
-        {
-            telemetry.addData("encoder-fwd", gobbler.leftDrive.getCurrentPosition() + "  busy=" + gobbler.leftDrive.isBusy());
-            telemetry.update();
-            idle();
+        while (     !(leftIsBlue || rightIsBlue)  ){   //while both color sensors do not measure blue
+            moveTime+=100;
         }
-/*
-//Hard coding:
-    //using 2 m : 2.03 s, 10.15*x cm = ms
-        //Go forward x1 cm
-        gobbler.leftDrive.setPower(-1.0);
-        gobbler.rightDrive.setPower(-1.0);
-        sleep((long)(distance_const * x1_cm));
+        sleep(moveTime);    //specifies the amt of time to go forward
 
 
-        //pause for some time
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
-        sleep(1000);
+        if (leftIsBlue){    // if left is on blue, move right until it is also on blue
+            gobbler.rightDrive.setPower(-1.0);
+            while (!rightIsBlue){
+                moveTime2 += 50;
+            }
+            sleep(moveTime2);
+        }
+        else if (rightIsBlue){  // if right is on blue, move left until it is also on blue
+            gobbler.leftDrive.setPower(-1.0);
+            while (!leftIsBlue){
+                moveTime2 += 50;
+            }
+            sleep(moveTime2);
+        }
 
 
-        //90 degree turn (to the left):
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(-1.0);
-        sleep(turn90deg_ms);
 
-        //pause for some time
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
-        sleep(1000);
-
-        //go forward x2 cm
-        gobbler.leftDrive.setPower(-1.0);
-        gobbler.rightDrive.setPower(-1.0);
-        sleep((long)(distance_const * x2_cm));
-
-        //pause for some time
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
-        sleep(1000);
-
-        //45 degree turn:
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(-1.0);
-        sleep(turn45deg_ms);
-
-        //pause for some time
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
-        sleep(1000);
-
-        //go forward for x3 cm
-        gobbler.leftDrive.setPower(-1.0);
-        gobbler.rightDrive.setPower(-1.0);
-        sleep((long)(distance_const * x3_cm));
-
-        //stop
-        gobbler.leftDrive.setPower(0.0);
-        gobbler.rightDrive.setPower(0.0);
-        //push off marker in depot
-        gobbler.markerPusher.setPosition(0.2);//with orig position at 0.75, setting pos to 0.2 should push off the marker
 
         gobbler.leftDrive.setPower(0.0);
         gobbler.rightDrive.setPower(0.0);
-*/
+        sleep(200);
 
-
-        // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
+        //Now sample:
         initVuforia();
-
-
-
 
         if (ClassFactory.getInstance().canCreateTFObjectDetector()) {
             initTfod();
@@ -161,10 +98,9 @@ public class Auto_1 extends LinearOpMode{
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        /** Wait for the game to begin */
-        telemetry.addData(">", "Press Play to start tracking");
-        telemetry.update();
-        waitForStart();
+//        /** Wait for the game to begin */
+//        telemetry.addData(">", "Press Play to start tracking");
+//        telemetry.update();
 
         if (opModeIsActive()) {
             /** Activate Tensor Flow Object Detection. */
@@ -184,15 +120,6 @@ public class Auto_1 extends LinearOpMode{
                             int silverMineral1X = -1;
                             int silverMineral2X = -1;
                             for (Recognition recognition : updatedRecognitions) {
-                                float x = recognition.getTop();
-                                float y = recognition.getImageWidth() - recognition.getRight();
-                                float width = recognition.getHeight();
-                                float height = recognition.getWidth();
-                                telemetry.addData("x", x);
-                                telemetry.addData("y", y);
-                                telemetry.addData("width", width);
-                                telemetry.addData("height", height);
-
                                 if (recognition.getLabel().equals(LABEL_GOLD_MINERAL)) {
                                     goldMineralX = (int) recognition.getLeft();
                                 } else if (silverMineral1X == -1) {
@@ -203,10 +130,13 @@ public class Auto_1 extends LinearOpMode{
                             }
                             if (goldMineralX != -1 && silverMineral1X != -1 && silverMineral2X != -1) {
                                 if (goldMineralX < silverMineral1X && goldMineralX < silverMineral2X) {
+                                    gold_Left = true;
                                     telemetry.addData("Gold Mineral Position", "Left");
                                 } else if (goldMineralX > silverMineral1X && goldMineralX > silverMineral2X) {
+                                    gold_Right = true;
                                     telemetry.addData("Gold Mineral Position", "Right");
                                 } else {
+                                    gold_Center = true;
                                     telemetry.addData("Gold Mineral Position", "Center");
                                 }
                             }
@@ -220,11 +150,36 @@ public class Auto_1 extends LinearOpMode{
         if (tfod != null) {
             tfod.shutdown();
         }
-    }
 
-    /**
-     * Initialize the Vuforia localization engine.
-     */
+
+        if (gold_Left){//move robot to its right
+
+        }
+        else if (gold_Right){//move robot to its left
+            //turn backwards left
+            gobbler.rightDrive.setPower(-1.0);
+            gobbler.leftDrive.setPower(1.0);
+            sleep(100);
+
+            //move backwards
+            gobbler.rightDrive.setPower(-1.0);
+            gobbler.leftDrive.setPower(-1.0);
+            sleep(500);
+
+            //turn backwards right
+            gobbler.rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT); //allow right drive wheels to spin freely
+            gobbler.leftDrive.setPower(-1.0);
+            sleep(300);
+        }
+        else {  // default center
+
+        }
+
+
+
+
+
+    }
     private void initVuforia() {
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
@@ -232,15 +187,14 @@ public class Auto_1 extends LinearOpMode{
         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
-        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.FRONT;
-        parameters = new VuforiaLocalizer.Parameters(R.id.cameraMonitorViewId); //Put "R.id.cameraMonitorViewId" in the parameter of the Parameters method if you want camera to display on RC phone
-
+        parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
 
         //  Instantiate the Vuforia engine
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
         // Loading trackables is not necessary for the Tensor Flow Object Detection engine.
     }
+
     /**
      * Initialize the Tensor Flow Object Detection engine.
      */

@@ -22,13 +22,13 @@ public class Auto_PartialCrater extends LinearOpMode{
         waitForStart();
 
         //Go forward
-        gobbler.leftMotor.setPower(-1.0);
-        gobbler.rightMotor.setPower(-1.0);
+        gobbler.leftDrive.setPower(-1.0);
+        gobbler.rightDrive.setPower(-1.0);
         sleep(1000);
 
         //stop
-        gobbler.leftMotor.setPower(0.0);
-        gobbler.rightMotor.setPower(0.0);
+        gobbler.leftDrive.setPower(0.0);
+        gobbler.rightDrive.setPower(0.0);
 
         //raise arm
         gobbler.armMotorLeft.setPower(1.0);
@@ -42,8 +42,8 @@ public class Auto_PartialCrater extends LinearOpMode{
         gobbler.extendIntakeMotor.setPower(1.0);
         sleep(1300);
 
-        gobbler.leftMotor.setPower(0.0);
-        gobbler.rightMotor.setPower(0.0);
+        gobbler.leftDrive.setPower(0.0);
+        gobbler.rightDrive.setPower(0.0);
         gobbler.extendIntakeMotor.setPower(0.0);
         gobbler.armMotorLeft.setPower(0.0);
         gobbler.armMotorRight.setPower(0.0);

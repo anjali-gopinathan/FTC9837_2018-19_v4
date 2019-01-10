@@ -12,8 +12,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 class Hardware9837_gobbler {
     //Drive train:
-    DcMotor rightMotor;
-    DcMotor leftMotor;
+    DcMotor rightDrive;
+    DcMotor leftDrive;
 
     //arm, intake, extend intake
     DcMotor intakeMotor;
@@ -37,8 +37,8 @@ class Hardware9837_gobbler {
 
     public void init(HardwareMap hwMap){
         //set direction of motors facing opposite directions
-        rightMotor = hwMap.dcMotor.get("rightDrive");   //port zero hub A
-        leftMotor = hwMap.dcMotor.get("leftDrive");     //port 1 hub A
+        rightDrive = hwMap.dcMotor.get("rightDrive");   //port zero hub A
+        leftDrive = hwMap.dcMotor.get("leftDrive");     //port 1 hub A
 
         colorSensorLeft = hwMap.colorSensor.get("colorSensorLeft");
         colorSensorRight = hwMap.colorSensor.get("colorSensorRight");
@@ -51,8 +51,8 @@ class Hardware9837_gobbler {
         armMotorRight = hwMap.dcMotor.get("arm rightol motor");//port 3 hub A
         extendIntakeMotor = hwMap.dcMotor.get("extend intake");//port 1 hub b
 
-        rightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        leftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armMotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armMotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         extendIntakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -64,8 +64,8 @@ class Hardware9837_gobbler {
 
 
         //Dcmotors: CW by default
-        rightMotor.setDirection(DcMotor.Direction.FORWARD);
-        leftMotor.setDirection(DcMotor.Direction.REVERSE);
+        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        leftDrive.setDirection(DcMotor.Direction.REVERSE);
         
         intakeMotor.setDirection(DcMotor.Direction.FORWARD);
         armMotorLeft.setDirection(DcMotor.Direction.FORWARD);
@@ -75,12 +75,12 @@ class Hardware9837_gobbler {
 
         liftUpMotor.setDirection(DcMotor.Direction.FORWARD);
 
-        rightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        leftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         
         //set pwr to 0
-        rightMotor.setPower(0.0);
-        leftMotor.setPower(0.0);
+        rightDrive.setPower(0.0);
+        leftDrive.setPower(0.0);
         intakeMotor.setPower(0.0);
         armMotorLeft.setPower(0.0);
         armMotorRight.setPower(0.0);

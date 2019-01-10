@@ -56,30 +56,10 @@ public class ConceptTensorFlowObjectDetection extends LinearOpMode {
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
     private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
 
-    /*
-     * IMPORTANT: You need to obtain your own license key to use Vuforia. The string below with which
-     * 'parameters.vuforiaLicenseKey' is initialized is for illustration only, and will not function.
-     * A Vuforia 'Development' license key, can be obtained free of charge from the Vuforia developer
-     * web site at https://developer.vuforia.com/license-manager.
-     *
-     * Vuforia license keys are always 380 characters long, and look as if they contain mostly
-     * random data. As an example, here is a example of a fragment of a valid key:
-     *      ... yIgIzTqZ4mWjk9wd3cZO9T1axEqzuhxoGlfOOI2dRzKS4T0hQ8kT ...
-     * Once you've obtained a license key, copy the string from the Vuforia web site
-     * and paste it in to your code on the next line, between the double quotes.
-     */
     private static final String VUFORIA_KEY = "AcPpQr7/////AAABmRuQqklau0F7hH15ovElLi8g8xxcFH4hzU6JHV7txfq4WXoLctKsuwc8XqSq/SU10A1VnIUj5HXdhG5Ni8/2X8Z+dWSe4pyn1lwj/Bc7nLV5+6j/8I1wKUrZ6wrjclDvcv+lz/W+TQDnrcLXYOLB8b3/voF9/xd/xTZFi5P2oaA/AOokm2IuadPdTJw1iyEujqs6RJM20C1Kjd9v0FSG07oUlImhPuSV18p/JoP/isRgxQLDxKpGluZbvWZm7yITMciaJ9uPvh7O48UiEzfeOupsFbHIUb0C7DgyzmFTEPwjIuQXbNLZik+IB0upOVabS4Lh572YxBj2rv30Icw99tGVaioIMk2LkoVxI9SH6LdH";
 
-    /**
-     * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
-     * localization engine.
-     */
     private VuforiaLocalizer vuforia;
 
-    /**
-     * {@link #tfod} is the variable we will use to store our instance of the Tensor Flow Object
-     * Detection engine.
-     */
     private TFObjectDetector tfod;
 
     @Override
@@ -94,9 +74,9 @@ public class ConceptTensorFlowObjectDetection extends LinearOpMode {
             telemetry.addData("Sorry!", "This device is not compatible with TFOD");
         }
 
-        /** Wait for the game to begin */
-        telemetry.addData(">", "Press Play to start tracking");
-        telemetry.update();
+//        /** Wait for the game to begin */
+//        telemetry.addData(">", "Press Play to start tracking");
+//        telemetry.update();
         waitForStart();
 
         if (opModeIsActive()) {
