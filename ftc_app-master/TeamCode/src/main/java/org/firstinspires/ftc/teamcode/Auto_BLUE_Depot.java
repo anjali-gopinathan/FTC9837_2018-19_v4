@@ -39,9 +39,9 @@ public class Auto_BLUE_Depot extends LinearOpMode{
 
         waitForStart();
         //Lower
-        gobbler.liftUpMotor.setPower(-1.0);
-        sleep(1000);
-        gobbler.liftUpMotor.setPower(0.0);
+//        gobbler.liftUpMotor.setPower(-1.0);
+//        sleep(1000);
+//        gobbler.liftUpMotor.setPower(0.0);
 
         // turn 80 degrees
         gobbler.leftDrive.setPower(1.0);
