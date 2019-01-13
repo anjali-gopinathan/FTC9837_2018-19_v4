@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto partially crater park", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto partially crater park USE THIS", group="Pushbot")
 public class Auto_PartialCrater extends LinearOpMode{
     Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
     public void runOpMode(){
@@ -24,7 +24,7 @@ public class Auto_PartialCrater extends LinearOpMode{
         //Go forward
         gobbler.leftDrive.setPower(-1.0);
         gobbler.rightDrive.setPower(-1.0);
-        sleep(1000);
+        sleep(20000);
 
         //stop
         gobbler.leftDrive.setPower(0.0);

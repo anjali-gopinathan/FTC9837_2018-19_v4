@@ -18,7 +18,7 @@ public class Auto_DepotSide extends LinearOpMode{
     public void runOpMode(){
         double distance_const = 10.15;
         long x1_cm = 45;
-        long x2_cm = 150;
+        long x2_cm = 130;
         long x3_cm = 186;
 
         long turn90deg_ms = 900;
@@ -63,7 +63,7 @@ public class Auto_DepotSide extends LinearOpMode{
         //135 degree turn:
         gobbler.leftDrive.setPower(-1.0);
         gobbler.rightDrive.setPower(0.0);
-        sleep(turn135deg_ms);
+        sleep(turn90deg_ms/2);
 
         //pause for some time
         gobbler.leftDrive.setPower(0.0);

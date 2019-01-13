@@ -63,10 +63,10 @@ class Hardware9837_gobbler {
         rotateTwister.setPosition(0);
 
 
-        //Dcmotors: CW by default
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        
+        //Dcmotors: CW by default   cw on left side = forward
+        rightDrive.setDirection(DcMotor.Direction.REVERSE);
+        leftDrive.setDirection(DcMotor.Direction.FORWARD);
+
         intakeMotor.setDirection(DcMotor.Direction.FORWARD);
         armMotorLeft.setDirection(DcMotor.Direction.FORWARD);
         armMotorRight.setDirection(DcMotor.Direction.REVERSE);

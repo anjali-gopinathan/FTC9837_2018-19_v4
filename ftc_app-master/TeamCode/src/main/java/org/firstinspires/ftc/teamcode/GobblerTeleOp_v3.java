@@ -40,8 +40,8 @@ public class GobblerTeleOp_v3 extends LinearOpMode{
 
             double motorPower = 0.8;
 
-            gobbler.leftDrive.setPower(-leftDrive);
-            gobbler.rightDrive.setPower(-rightDrive);
+            gobbler.leftDrive.setPower(leftDrive);
+            gobbler.rightDrive.setPower(rightDrive);
 
             if(armMotorsUp >0) {
                 gobbler.armMotorLeft.setPower(armMotorsUp);

@@ -34,6 +34,7 @@ public class Auto_BLUE_Depot extends LinearOpMode{
         boolean gold_Left = false;
         boolean gold_Right = false;
         boolean gold_Center = false;
+        long turn90deg_ms = 900;
 
         gobbler.init(hardwareMap);
 
