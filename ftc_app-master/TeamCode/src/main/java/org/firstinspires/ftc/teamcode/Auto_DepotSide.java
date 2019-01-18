@@ -17,9 +17,9 @@ public class Auto_DepotSide extends LinearOpMode{
     Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
     public void runOpMode(){
         double distance_const = 10.15;
-        long x1_cm = 45;
-        long x2_cm = 130;
-        long x3_cm = 186;
+        long x1_cm = 33;
+        long x2_cm = 70;
+        long x3_cm = 116;
 
         long turn90deg_ms = 900;
         long turn135deg_ms = 1350;
@@ -63,7 +63,7 @@ public class Auto_DepotSide extends LinearOpMode{
         //135 degree turn:
         gobbler.leftDrive.setPower(-1.0);
         gobbler.rightDrive.setPower(0.0);
-        sleep(turn90deg_ms/2);
+        sleep(turn135deg_ms);
 
         //pause for some time
         gobbler.leftDrive.setPower(0.0);
@@ -75,11 +75,20 @@ public class Auto_DepotSide extends LinearOpMode{
         gobbler.rightDrive.setPower(-1.0);
         sleep((long)(distance_const * x3_cm));
 
+        gobbler.leftDrive.setPower(0.0);
+        gobbler.rightDrive.setPower(0.0);
+        sleep(1000);
+
+        gobbler.leftDrive.setPower(-1.0);
+        gobbler.rightDrive.setPower(0.0);
+        sleep((long)(turn90deg_ms));
+
+
         //stop
         gobbler.leftDrive.setPower(0.0);
         gobbler.rightDrive.setPower(0.0);
         //push off marker in depot
-        gobbler.markerPusher.setPosition(0.2);//with orig position at 0.75, setting pos to 0.2 should push off the marker
+        gobbler.markerPusher.setPosition(0.15);//with orig position at 0.75, setting pos to 0.2 should push off the marker
 
         gobbler.leftDrive.setPower(0.0);
         gobbler.rightDrive.setPower(0.0);
