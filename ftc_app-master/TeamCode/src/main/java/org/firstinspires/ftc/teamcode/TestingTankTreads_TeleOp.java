@@ -13,13 +13,14 @@ public class TestingTankTreads_TeleOp extends LinearOpMode{
     public void runOpMode(){
         tank.init(hardwareMap);
         waitForStart();
-        boolean liftUp = gamepad1.dpad_up;
-        boolean lowerDown = gamepad1.dpad_down;
-
-        boolean rotateTwisterUp = gamepad1.dpad_right;
-        boolean rotateTwisterDown = gamepad1.dpad_left;
-
         while(opModeIsActive()){
+
+            boolean liftUp = gamepad1.dpad_up;
+            boolean lowerDown = gamepad1.dpad_down;
+
+            boolean rotateTwisterUp = gamepad1.dpad_right;
+            boolean rotateTwisterDown = gamepad1.dpad_left;
+
             tank.leftDrive.setPower(gamepad1.left_stick_y);
             tank.rightDrive.setPower(-gamepad1.right_stick_y);
 
