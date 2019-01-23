@@ -15,34 +15,34 @@ public class TestingTankTreads_TeleOp extends LinearOpMode{
         waitForStart();
         while(opModeIsActive()){
 
-            boolean liftUp = gamepad1.dpad_up;
-            boolean lowerDown = gamepad1.dpad_down;
+            boolean liftUp = gamepad1.dpad_up;  //Lifts robot up
+            boolean lowerDown = gamepad1.dpad_down; //lowers robot
 
-            boolean rotateTwisterUp = gamepad1.dpad_right;
+            boolean rotateTwisterUp = gamepad1.dpad_right;  //rotates lifter up
             boolean rotateTwisterDown = gamepad1.dpad_left;
 
             tank.leftDrive.setPower(gamepad1.left_stick_y);
             tank.rightDrive.setPower(-gamepad1.right_stick_y);
 
-            if (liftUp){
-                tank.liftUpMotor.setPower(1.0);
-            }
-            else if (lowerDown){
-                tank.liftUpMotor.setPower(-1.0);
-            }
-            else {
-                tank.liftUpMotor.setPower(0.0);
-            }
-
-            if(rotateTwisterUp){
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() >= 0.98 ? 1.0 : tank.rotateTwister.getPosition() + .02);
-            }
-            else if(rotateTwisterDown){
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() <= 0.02 ? 0.0 : tank.rotateTwister.getPosition() - .02);
-            }
-            else{
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition());
-            }
+//            if (liftUp){
+//                tank.liftUpMotor.setPower(1.0);
+//            }
+//            else if (lowerDown){
+//                tank.liftUpMotor.setPower(-1.0);
+//            }
+//            else {
+//                tank.liftUpMotor.setPower(0.0);
+//            }
+//
+//            if(rotateTwisterUp){
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() >= 0.98 ? 1.0 : tank.rotateTwister.getPosition() + .02);
+//            }
+//            else if(rotateTwisterDown){
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() <= 0.02 ? 0.0 : tank.rotateTwister.getPosition() - .02);
+//            }
+//            else{
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition());
+//            }
 
 
 

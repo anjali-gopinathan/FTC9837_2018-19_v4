@@ -50,13 +50,13 @@ class Hardware9837_gobbler {
         armMotorLeft = hwMap.dcMotor.get("arm left motor"); // port 2 hub A
         armMotorRight = hwMap.dcMotor.get("arm rightol motor");//port 3 hub A
         extendIntakeMotor = hwMap.dcMotor.get("extend intake");//port 1 hub b
-
+        //set brakes on motor
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armMotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armMotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         extendIntakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
+        //lift motor set to current configuration
         liftUpMotor = hwMap.dcMotor.get("lift motor");
 //
         rotateTwister = hwMap.servo.get("rotate twister");
