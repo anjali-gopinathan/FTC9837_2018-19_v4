@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -23,6 +24,7 @@ public class HardwareConfigTankTreads {
 //        rotateTwister = hwMap.servo.get("rotate twister");
 //        rotateTwister.setPosition(0);
 
+        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 //        liftUpMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

@@ -21,7 +21,7 @@ public class TestingTankTreads_TeleOp extends LinearOpMode{
             boolean rotateTwisterUp = gamepad1.dpad_right;  //rotates lifter up
             boolean rotateTwisterDown = gamepad1.dpad_left;
 
-            tank.leftDrive.setPower(gamepad1.left_stick_y);
+            tank.leftDrive.setPower(-gamepad1.left_stick_y);
             tank.rightDrive.setPower(-gamepad1.right_stick_y);
 
 //            if (liftUp){
