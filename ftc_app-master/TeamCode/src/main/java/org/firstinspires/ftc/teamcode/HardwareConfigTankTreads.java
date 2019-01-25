@@ -13,20 +13,24 @@ public class HardwareConfigTankTreads {
 
     DcMotor leftDrive;
     DcMotor rightDrive;
-//    DcMotor liftUpMotor;
-//    Servo rotateTwister;
+    DcMotor liftUpMotor;
+    Servo rotateTwister;
+    Servo markerPusher;
 
     public void init(HardwareMap hwMap){
         leftDrive = hwMap.dcMotor.get("leftdrive");
         rightDrive = hwMap.dcMotor.get("rightdrive");
-//        liftUpMotor = hwMap.dcMotor.get("liftUpMotor");
+        liftUpMotor = hwMap.dcMotor.get("liftUpMotor");
 
-//        rotateTwister = hwMap.servo.get("rotate twister");
-//        rotateTwister.setPosition(0);
+        rotateTwister = hwMap.servo.get("rotate twister");
+        rotateTwister.setPosition(0);
+
+        markerPusher = hwMap.servo.get("marker pusher");
+        markerPusher.setPosition(0);
 
         leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         leftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-//        liftUpMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        liftUpMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 }

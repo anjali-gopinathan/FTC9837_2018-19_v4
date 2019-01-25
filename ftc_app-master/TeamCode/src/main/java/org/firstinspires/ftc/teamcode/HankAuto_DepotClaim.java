@@ -26,8 +26,9 @@ public class HankAuto_DepotClaim extends LinearOpMode{
         tank.rightDrive.setPower(0.0);
         sleep(500);
         //Drop off marker
-//        tank.markerPusher.setPosition(tank.markerPusher.getPosition() - .5);
+        tank.markerPusher.setPosition(1.0);
         //turn right
+        sleep(1000);
         tank.leftDrive.setPower(-1.0);
         tank.rightDrive.setPower(1.0);
         sleep(turn45deg_ms);
