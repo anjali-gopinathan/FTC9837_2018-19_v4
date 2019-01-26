@@ -14,7 +14,7 @@ public class HardwareConfigTankTreads {
     DcMotor leftDrive;
     DcMotor rightDrive;
     DcMotor liftUpMotor;
-    Servo rotateTwister;
+//    Servo rotateTwister;
     Servo markerPusher;
 
     public void init(HardwareMap hwMap){
@@ -22,8 +22,8 @@ public class HardwareConfigTankTreads {
         rightDrive = hwMap.dcMotor.get("rightdrive");
         liftUpMotor = hwMap.dcMotor.get("liftUpMotor");
 
-        rotateTwister = hwMap.servo.get("rotate twister");
-        rotateTwister.setPosition(0);
+//        rotateTwister = hwMap.servo.get("rotate twister");
+//        rotateTwister.setPosition(0);
 
         markerPusher = hwMap.servo.get("marker pusher");
         markerPusher.setPosition(0);

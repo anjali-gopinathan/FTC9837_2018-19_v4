@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -16,7 +17,8 @@ import java.util.List;
  * Created by Anjali on 11/28/2018.
  */
 
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto CRATER side don't use", group="Pushbot")
+@Disabled
+//@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto CRATER side don't use", group="Pushbot")
 public class Auto_1 extends LinearOpMode{
     Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";

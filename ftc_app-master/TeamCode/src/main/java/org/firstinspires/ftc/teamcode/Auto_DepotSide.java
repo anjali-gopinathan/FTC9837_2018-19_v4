@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -11,8 +12,8 @@ import java.util.List;
 
 /**
  * Created by Anjali on 12/9/2018.
- */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto DEPOT side", group="Pushbot")
+ */@Disabled
+//@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto DEPOT side", group="Pushbot")
 public class Auto_DepotSide extends LinearOpMode{
     Hardware9837_gobbler gobbler = new Hardware9837_gobbler();
     public void runOpMode(){

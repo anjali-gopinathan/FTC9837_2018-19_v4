@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Crater Park", group="Pushbot")
-public class HankAuto_CraterPark extends LinearOpMode{
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Lower only", group="Pushbot")
+public class HankAuto_Lower extends LinearOpMode{
     HardwareConfigTankTreads tank = new HardwareConfigTankTreads();
     public void runOpMode(){
 
@@ -14,12 +14,11 @@ public class HankAuto_CraterPark extends LinearOpMode{
 
         waitForStart();
 
-        //Go forward
-        tank.leftDrive.setPower(1.0);
-        tank.rightDrive.setPower(1.0);
-        sleep(4750);
-
-        //stop
+        //lower
+        tank.liftUpMotor.setPower(1.0);
+        sleep( 4750);//lower: 4 sec; 4.75, 4.82,
+        //raise: 8.5
+        tank.liftUpMotor.setPower(0.0);
         tank.leftDrive.setPower(0.0);
         tank.rightDrive.setPower(0.0);
 

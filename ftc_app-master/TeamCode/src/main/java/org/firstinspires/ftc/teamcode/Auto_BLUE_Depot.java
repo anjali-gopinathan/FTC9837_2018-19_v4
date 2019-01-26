@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -13,7 +14,8 @@ import java.util.List;
 /**
  * Created by Anjali on 11/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto BLUE Depot", group="Pushbot")
+@Disabled
+//@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto BLUE Depot", group="Pushbot")
 public class Auto_BLUE_Depot extends LinearOpMode{
     private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     private static final String LABEL_GOLD_MINERAL = "Gold Mineral";

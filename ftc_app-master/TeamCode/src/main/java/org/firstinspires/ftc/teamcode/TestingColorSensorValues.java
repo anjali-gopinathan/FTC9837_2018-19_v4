@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import java.io.InterruptedIOException;
@@ -7,7 +8,8 @@ import java.io.InterruptedIOException;
 /**
  * Created by Anjali on 1/9/2019.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto color sensor test", group="Pushbot")
+@Disabled
+//@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Auto color sensor test", group="Pushbot")
 public class TestingColorSensorValues extends LinearOpMode {
 
     @Override

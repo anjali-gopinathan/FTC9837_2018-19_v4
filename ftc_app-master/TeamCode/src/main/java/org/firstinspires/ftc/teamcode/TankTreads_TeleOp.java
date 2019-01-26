@@ -21,8 +21,8 @@ public class TankTreads_TeleOp extends LinearOpMode{
             boolean liftUp = gamepad1.dpad_up;  //Lifts robot up
             boolean lowerDown = gamepad1.dpad_down; //lowers robot
 
-            boolean rotateTwisterUp = gamepad1.dpad_right;  //rotates lifter up
-            boolean rotateTwisterDown = gamepad1.dpad_left;
+//            boolean rotateTwisterUp = gamepad1.dpad_right;  //rotates lifter up
+//            boolean rotateTwisterDown = gamepad1.dpad_left;
 
             tank.leftDrive.setPower(-gamepad1.left_stick_y);
             tank.rightDrive.setPower(-gamepad1.right_stick_y);
@@ -37,15 +37,15 @@ public class TankTreads_TeleOp extends LinearOpMode{
                 tank.liftUpMotor.setPower(0.0);
             }
 
-            if(rotateTwisterUp){
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() >= 0.98 ? 1.0 : tank.rotateTwister.getPosition() + .02);
-            }
-            else if(rotateTwisterDown){
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() <= 0.02 ? 0.0 : tank.rotateTwister.getPosition() - .02);
-            }
-            else{
-                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition());
-            }
+//            if(rotateTwisterUp){
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() >= 0.98 ? 1.0 : tank.rotateTwister.getPosition() + .02);
+//            }
+//            else if(rotateTwisterDown){
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() <= 0.02 ? 0.0 : tank.rotateTwister.getPosition() - .02);
+//            }
+//            else{
+//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition());
+//            }
 
             //Servo to push marker into depot- y and a
             if (markerPusherIn){

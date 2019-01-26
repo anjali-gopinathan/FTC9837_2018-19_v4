@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Depot Claim and Crater Park", group="Pushbot")
-public class HankAuto_DepotClaim extends LinearOpMode{
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Depot Claim Only", group="Pushbot")
+public class HankAuto_DepotClaim_NoPark extends LinearOpMode{
     HardwareConfigTankTreads tank = new HardwareConfigTankTreads();
     public void runOpMode(){
         long turn135deg_ms = 1350;
@@ -31,20 +31,12 @@ public class HankAuto_DepotClaim extends LinearOpMode{
         sleep(500);
         //Drop off marker
         tank.markerPusher.setPosition(1.0);
-        //turn right
+        //turn right because why not
         sleep(1000);
         tank.leftDrive.setPower(-1.0);
         tank.rightDrive.setPower(1.0);
         sleep(turn45deg_ms);
 
-        //pause
-        tank.leftDrive.setPower(0.0);
-        tank.rightDrive.setPower(0.0);
-        sleep(500);
-        //go backward for a1 cm
-        tank.leftDrive.setPower(-1.0);
-        tank.rightDrive.setPower(-1.0);
-        sleep(6400);
         //stop
         tank.leftDrive.setPower(0.0);
         tank.rightDrive.setPower(0.0);
