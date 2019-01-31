@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 /**
- * Created by Anjali on 12/9/2018.
+ * Created by Anjali on 1/26/2018.
  */
 @com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Lower only", group="Pushbot")
 public class HankAuto_Lower extends LinearOpMode{
