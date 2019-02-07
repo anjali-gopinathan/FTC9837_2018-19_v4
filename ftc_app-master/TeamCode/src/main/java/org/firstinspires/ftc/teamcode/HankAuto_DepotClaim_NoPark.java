@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Depot Claim Only", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="D Tank Auto: Depot Claim Only", group="Pushbot")
 public class HankAuto_DepotClaim_NoPark extends LinearOpMode{
     HardwareConfigTankTreads tank = new HardwareConfigTankTreads();
     public void runOpMode(){

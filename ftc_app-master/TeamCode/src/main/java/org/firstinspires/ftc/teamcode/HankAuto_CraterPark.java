@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="Tank Auto: Crater Park", group="Pushbot")
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="C Tank Auto: Crater Park", group="Pushbot")
 public class HankAuto_CraterPark extends LinearOpMode{
     HardwareConfigTankTreads tank = new HardwareConfigTankTreads();
     public void runOpMode(){

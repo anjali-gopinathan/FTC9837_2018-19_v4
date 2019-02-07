@@ -5,8 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /**
  * Created by Anjali on 12/9/2018.
  */
-@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="D Tank Auto: Depot Claim, Crater Park", group="Pushbot")
-public class HankAuto_DepotClaim extends LinearOpMode{
+@com.qualcomm.robotcore.eventloop.opmode.Autonomous(name="C Tank Auto: Depot Claim, Crater park", group="Pushbot")
+public class HankAuto_DepotClaim_CraterSide extends LinearOpMode{
     HardwareConfigTankTreads tank = new HardwareConfigTankTreads();
     public void runOpMode(){
         long turn135deg_ms = 1350;
@@ -24,28 +24,58 @@ public class HankAuto_DepotClaim extends LinearOpMode{
         //Go forward
         tank.leftDrive.setPower(1.0);
         tank.rightDrive.setPower(1.0);
-        sleep(2900);
-
-        tank.leftDrive.setPower(0.0);
-        tank.rightDrive.setPower(0.0);
-        sleep(500);
-        //Drop off marker
-        tank.markerPusher.setPosition(1.0);
-        //turn right
-        sleep(1000);
-        tank.leftDrive.setPower(-1.0);
-        tank.rightDrive.setPower(1.0);
-        sleep(turn45deg_ms);
+        sleep(700);
 
         //pause
         tank.leftDrive.setPower(0.0);
         tank.rightDrive.setPower(0.0);
         sleep(500);
-        //go backward for a1 cm
+
+        //turn left
+        tank.leftDrive.setPower(-1.0);
+        tank.rightDrive.setPower(1.0);
+        sleep(900);
+
+        //pause
+        tank.leftDrive.setPower(0.0);
+        tank.rightDrive.setPower(0.0);
+        sleep(500);
+
+        //go forward
+        tank.leftDrive.setPower(1.0);
+        tank.rightDrive.setPower(1.0);
+        sleep(900);
+
+        //pause
+        tank.leftDrive.setPower(0.0);
+        tank.rightDrive.setPower(0.0);
+        sleep(500);
+
+        //turn left 45 deg
+        tank.leftDrive.setPower(-1.0);
+        tank.rightDrive.setPower(1.0);
+        sleep(500);
+
+        //go forward
+        tank.leftDrive.setPower(1.0);
+        tank.rightDrive.setPower(1.0);
+        sleep(4000);
+
+        //pause
+        tank.leftDrive.setPower(0.0);
+        tank.rightDrive.setPower(0.0);
+        sleep(500);
+
+        //Drop off marker
+        tank.markerPusher.setPosition(1.0);
+        //turn right
+        sleep(500);
+
+        //go backward all the way into the crater
         tank.leftDrive.setPower(-1.0);
         tank.rightDrive.setPower(-1.0);
         sleep(6400);
-        //stop
+
         tank.leftDrive.setPower(0.0);
         tank.rightDrive.setPower(0.0);
 
