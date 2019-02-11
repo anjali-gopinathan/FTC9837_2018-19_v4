@@ -17,10 +17,10 @@ class Hardware9837_gobbler {
 
     //arm, intake, extend intake
     DcMotor intakeMotor;
-    DcMotor armMotorLeft;
-    DcMotor armMotorRight;
     DcMotor extendIntakeMotor;
 
+    DcMotor armMotorLeft;
+    DcMotor armMotorRight;
 
     ColorSensor colorSensorLeft;
     ColorSensor colorSensorRight;

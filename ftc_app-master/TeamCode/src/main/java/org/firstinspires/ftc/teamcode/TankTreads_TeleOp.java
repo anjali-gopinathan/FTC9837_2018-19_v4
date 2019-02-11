@@ -21,8 +21,16 @@ public class TankTreads_TeleOp extends LinearOpMode{
             boolean liftUp = gamepad1.dpad_up;  //Lifts robot up
             boolean lowerDown = gamepad1.dpad_down; //lowers robot
 
-//            boolean rotateTwisterUp = gamepad1.dpad_right;  //rotates lifter up
-//            boolean rotateTwisterDown = gamepad1.dpad_left;
+            double armMotorUp = gamepad1.right_trigger;
+            double armMotorDown = gamepad1.left_trigger;
+
+            boolean extendMotorOut = gamepad1.b;
+            boolean extendMotorIn = gamepad1.x;
+
+            boolean intakeIn = gamepad1.left_bumper;
+            boolean intakeOut = gamepad1.right_bumper;
+
+            double motorPower = 0.8;
 
             tank.leftDrive.setPower(-gamepad1.left_stick_y);
             tank.rightDrive.setPower(-gamepad1.right_stick_y);
@@ -36,17 +44,37 @@ public class TankTreads_TeleOp extends LinearOpMode{
             else {
                 tank.liftUpMotor.setPower(0.0);
             }
-
-//            if(rotateTwisterUp){
-//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() >= 0.98 ? 1.0 : tank.rotateTwister.getPosition() + .02);
+//
+//            if(armMotorUp >0) {
+//                tank.armMotor.setPower(armMotorUp);
 //            }
-//            else if(rotateTwisterDown){
-//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition() <= 0.02 ? 0.0 : tank.rotateTwister.getPosition() - .02);
+//            else if (armMotorDown >0) {
+//                tank.armMotor.setPower(-armMotorDown);
 //            }
-//            else{
-//                tank.rotateTwister.setPosition(tank.rotateTwister.getPosition());
+//            else {
+//                tank.armMotor.setPower(0.0);
 //            }
-
+//            //extend motor (rack and pinion) - b and x
+//            if(extendMotorOut) {
+//                tank.extendIntakeMotor.setPower(motorPower);
+//            }
+//            else if (extendMotorIn) {
+//                tank.extendIntakeMotor.setPower(-motorPower);
+//            }
+//            else {
+//                tank.extendIntakeMotor.setPower(0.0);
+//            }
+//
+//            //intake - right and left bumpers
+//            if (intakeIn){
+//                tank.intakeMotor.setPower(1.0);
+//            }
+//            else if (intakeOut){
+//                tank.intakeMotor.setPower(-1.0);
+//            }
+//            else {
+//                tank.intakeMotor.setPower(0.0);
+//            }
             //Servo to push marker into depot- y and a
             if (markerPusherIn){
                 tank.markerPusher.setPosition(tank.markerPusher.getPosition() >= 0.98 ? 1.0 : tank.markerPusher.getPosition() + .02);
