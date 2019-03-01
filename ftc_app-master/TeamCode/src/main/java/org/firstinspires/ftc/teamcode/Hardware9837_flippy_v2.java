@@ -13,7 +13,7 @@ public class Hardware9837_flippy_v2 {
     DcMotor leftMotor;
 
     DcMotor deadwheelFlipper;
-//    DcMotor leftFlipper;
+    DcMotor leftFlipper;
 
 //    private ElapsedTime period  = new ElapsedTime();
 
@@ -24,9 +24,9 @@ public class Hardware9837_flippy_v2 {
         leftMotor = hardwareMap.dcMotor.get("leftDrive");
 
         deadwheelFlipper = hardwareMap.dcMotor.get("dead wheel Flipper");
-        //leftFlipper = hardwareMap.dcMotor.get("leftFlipper");
+        leftFlipper = hardwareMap.dcMotor.get("leftFlipper");
 
-        rightMotor.setDirection(DcMotor.Direction.FORWARD);
+        rightMotor.setDirection(DcMotor.Direction.REVERSE);
         leftMotor.setDirection(DcMotor.Direction.FORWARD);
 
         //set pwr to 0
@@ -35,7 +35,7 @@ public class Hardware9837_flippy_v2 {
         leftMotor.setPower(0.0);
 
         deadwheelFlipper.setPower(0.0);
-//        leftFlipper.setPower(0.0);
+        leftFlipper.setPower(0.0);
     }
 
 }
