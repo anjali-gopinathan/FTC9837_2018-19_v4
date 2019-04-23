@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  */
 
 
-@TeleOp(name="TeleOp: Holonomic", group="Linear Opmode")
+@TeleOp(name="TeleOp: Holonomic yeet", group="Linear Opmode")
 public class TeleOp_Holonomic extends LinearOpMode{
     Hardware_4MotorChassis robot = new Hardware_4MotorChassis();
     @Override
