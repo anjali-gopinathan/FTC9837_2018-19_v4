@@ -4,7 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.Range;
 
-
 /**
  * Created by Sam on 04/23/2019.
 
@@ -12,7 +11,7 @@ import com.qualcomm.robotcore.util.Range;
     https://github.com/MSMHS-Robotics/FTC4962_Examples/blob/master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/ConceptHolonomicDrive.java
 	Holonomic concepts from:
 	http://www.vexforum.com/index.php/12370-holonomic-drives-2-0-a-video-tutorial-by-cody/0
-   Robot wheel mapping:
+    Robot wheel mapping:
           X FRONT X
         X           X
       X  FL       FR  X
@@ -24,7 +23,7 @@ import com.qualcomm.robotcore.util.Range;
           X       X
 */
 
-@TeleOp(name = "TeleOp: NewHolomomic", group = "Linear Opmode")
+@TeleOp(name = "TeleOp: Holonomic_v2", group = "Linear Opmode")
 public class TeleOp_NewHolonomic extends LinearOpMode {
     Hardware_4MotorChassis robot = new Hardware_4MotorChassis();
     @Override
@@ -58,19 +57,6 @@ public class TeleOp_NewHolonomic extends LinearOpMode {
             robot.leftFrontDrive.setPower(FrontLeft);
             robot.leftRearDrive.setPower(BackLeft);
             robot.rightRearDrive.setPower(BackRight);
-
-
-            /*
-             * Telemetry for debugging
-
-            telemetry.addData("Text", "*** Robot Data***");
-            telemetry.addData("Joy XL YL XR", String.format("%.2f", gamepad1LeftX) + " " +
-                    String.format("%.2f", gamepad1LeftY) + " " + String.format("%.2f", gamepad1RightX));
-            telemetry.addData("f left pwr", "front left  pwr: " + String.format("%.2f", FrontLeft));
-            telemetry.addData("f right pwr", "front right pwr: " + String.format("%.2f", FrontRight));
-            telemetry.addData("b right pwr", "back right pwr: " + String.format("%.2f", BackRight));
-            telemetry.addData("b left pwr", "back left pwr: " + String.format("%.2f", BackLeft));
-            */
         }//end while loop
     }//end runOpMode
 
