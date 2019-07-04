@@ -19,7 +19,7 @@ public class Hardware_2MotorChassis_Summer2019 {
         leftMotor = hwMap.dcMotor.get("leftDrive");
         rightMotor = hwMap.dcMotor.get("rightDrive");
 
-        //Dcmotors: CW by default   cw on left side = forward
+        //DcMotors: CW by default   cw on left side = forward
         leftMotor.setDirection(DcMotor.Direction.FORWARD);
         rightMotor.setDirection(DcMotor.Direction.REVERSE);
 
