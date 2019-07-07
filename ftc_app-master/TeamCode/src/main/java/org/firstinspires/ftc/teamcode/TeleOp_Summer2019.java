@@ -27,7 +27,7 @@ public class TeleOp_Summer2019 extends LinearOpMode{
              *  double rightDrive = gamepad1.right_stick_x;
              *
              *  -------------------------------------------
-             *  This one needs if statements after.
+             *  Only forward movement w/ floats.
              *  double leftDrive = gamepad1.left_trigger;
              *  double rightDrive = gamepad1.right_trigger;
              *  if(leftDrive>0){
@@ -44,9 +44,29 @@ public class TeleOp_Summer2019 extends LinearOpMode{
              *      chad.rightMotor.setPower(0.0);
              *  }
              *  -------------------------------------------
-             *  
+             *  Only forward movement w/ booleans.
              *
-             */
+             *  -------------------------------------------
+             *  Four-button forward/backward movement w/ booleans.
+             *  double leftForwardDrive = gamepad1.dpad_up;
+             *  double rightForwardDrive = gamepad1.y;
+             *  double leftBackDrive = gamepad1.dpad_down;
+             *  double rightBackDrive = gamepad1.button_a;
+             *  double motorPower = 0.8;
+             *
+             *  if (leftForwardDrive){
+             *      chad.leftMotor.setPower(motorPower);
+             *  }
+             *  else if (leftBackDrive){
+             *      chad.leftMotor.setPower(-motorPower);
+             *  }
+             *  else{
+             *      chad.leftMotor.setPower(0.0);
+             *  }
+             *
+             *  if (rightForwardDrive){
+             *      
+             *  }
             //driving motors:
             chad.leftMotor.setPower(leftDrive);
             chad.rightMotor.setPower(rightDrive);
