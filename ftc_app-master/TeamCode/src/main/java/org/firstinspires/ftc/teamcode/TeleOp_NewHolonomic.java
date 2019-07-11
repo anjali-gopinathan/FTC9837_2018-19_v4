@@ -25,7 +25,7 @@ import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name = "TeleOp: Holonomic_v2", group = "Linear Opmode")
 public class TeleOp_NewHolonomic extends LinearOpMode {
-    Hardware_4MotorChassis robot = new Hardware_4MotorChassis();
+    Hardware_Holonomic robot = new Hardware_Holonomic();
     @Override
     public void runOpMode() {
         robot.init(hardwareMap);

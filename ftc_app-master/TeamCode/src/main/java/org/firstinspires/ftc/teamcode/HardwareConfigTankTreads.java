@@ -33,8 +33,8 @@ public class HardwareConfigTankTreads {
 //        rotateTwister = hwMap.servo.get("rotate twister");
 //        rotateTwister.setPosition(0);
 
-        markerPusher = hwMap.servo.get("marker pusher");
-        markerPusher.setPosition(0);
+        //markerPusher = hwMap.servo.get("marker pusher");
+        //markerPusher.setPosition(0);
 
         leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
 

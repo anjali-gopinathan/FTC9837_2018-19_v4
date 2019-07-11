@@ -76,7 +76,7 @@ public class TankTreads_TeleOp extends LinearOpMode{
 //                tank.intakeMotor.setPower(0.0);
 //            }
             //Servo to push marker into depot- y and a
-            if (markerPusherIn){
+            /*if (markerPusherIn){
                 tank.markerPusher.setPosition(tank.markerPusher.getPosition() >= 0.98 ? 1.0 : tank.markerPusher.getPosition() + .02);
             }
             else if (markerPusherOut){
@@ -84,7 +84,7 @@ public class TankTreads_TeleOp extends LinearOpMode{
             }
             else {
                 tank.markerPusher.setPosition(tank.markerPusher.getPosition());
-            }
+            }*/
 
 
 
